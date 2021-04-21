@@ -54,7 +54,7 @@ set _MSBUILD_CONFIG=Debug
 :ARGS_LOOP
 if (%1) == () goto :POST_ARGS_LOOP
 if (%1) == (clean) (
-    set _MSBUILD_TARGET=Clean,Build
+    set _MSBUILD_TARGET=Clean
 )
 if (%1) == (rel) (
     set _MSBUILD_CONFIG=Release
@@ -63,11 +63,11 @@ shift
 goto :ARGS_LOOP
 
 :POST_ARGS_LOOP
-%MSBUILD% %~dp0\DistroLauncher.sln /t:%_MSBUILD_TARGET% /m /nr:true /p:Configuration=%_MSBUILD_CONFIG%;Platform=x64
+%MSBUILD% %~dp0\DistroLauncher.sln /t:%_MSBUILD_TARGET% /m /nr:true /p:Configuration=%_MSBUILD_CONFIG%;Platform=x64;OutputPath=./bin
 
 if (%ERRORLEVEL%) == (0) (
     echo.
-    echo Created appx in %~dp0x64\%_MSBUILD_CONFIG%\DistroLauncher-Appx\
+    echo Created MSIX in %~dp0MSIXPackaging\AppPackages
     echo.
 )
 
