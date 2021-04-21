@@ -2,7 +2,8 @@
 ## Specific information for building Arch Linux for WSL
 [GLibc now requires linux-api-headers>4.10](https://archlinux.org/packages/core/x86_64/glibc/), so please use WSL2 to avoid "FATAL: kernel too old" errors.
 
-I created a script for creating Arch Linux rootfs for WSL inside another WSL distro.
+I created a script for creating Arch Linux rootfs for WSL inside another WSL distro. 
+You may modify this script for your need, or build rootfa by yourself.
 
 ```powershell
 $ wsl -u root -d <your_another_WSL_distribution> -e /bin/bash ./mkarchrootfs.outside.sh
