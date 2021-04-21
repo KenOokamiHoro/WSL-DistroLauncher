@@ -1,4 +1,7 @@
 # WSL Distro Launcher Reference Implementation
+## Specific information for building Arch Linux for WSL
+[GLibc now requires linux-api-headers>4.10](https://archlinux.org/packages/core/x86_64/glibc/), so please use WSL2 to avoid "FATAL: kernel too old" errors.
+
 ## Introduction 
 This is the C++ reference implementation for a Windows Subsystem for Linux (WSL) distribution installer/launcher application. Every distro package must include a launcher app, which is responsible for completing installation & registration of your distro with WSL, and for launching new distro instances atop WSL.
 
